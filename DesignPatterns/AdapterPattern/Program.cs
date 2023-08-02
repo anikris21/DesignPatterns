@@ -1,7 +1,12 @@
+
+using AdapterPattern;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IWeatherforecastProvider, WeatherforecastProvider>();
+builder.Services.AddSingleton<IWeatherAsStringProvider, WeatherAsCsvProvider>();
 
 var app = builder.Build();
 
